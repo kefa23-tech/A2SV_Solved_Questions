@@ -7,8 +7,7 @@ class Solution:
             if log == "../":
                 if stack:
                     stack.pop()
-                else:
-                    continue
+
             elif log == "./":
                 continue
             else:
