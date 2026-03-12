@@ -4,8 +4,9 @@ class Solution:
         def is_nonZero(triangle):
             if triangle[0] + triangle[1] > triangle[2]:
                 if triangle[0] + triangle[2] > triangle[1]:
-                    if triangle[2] + triangle[1] > triangle[0]:
+                    if triangle[2] + triangle[1] >= triangle[0]:
                         return True
+            return False
 
         i = 0
         nums.sort()
