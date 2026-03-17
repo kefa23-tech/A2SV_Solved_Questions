@@ -9,13 +9,11 @@ class Solution:
         return evens*primes*ans % mod
 
         
-        # evens = n//2
-        # if n%2==1:
-        #     evens+=1
-        # primes = n//2
-        # ans = pow(5,evens) * pow(4,primes) % mod
+        evens = n//2
+        primes = n//2
+        ans = pow(5,evens,mod) * pow(4,primes,mod) * pow(n%2)
 
-        # return ans
+        return ans % mod
 
 
         
