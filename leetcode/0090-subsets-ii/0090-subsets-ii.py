@@ -17,4 +17,4 @@ class Solution:
      
         backtrack(0,[])
        
-        return sorted(ans)
+        return ans
