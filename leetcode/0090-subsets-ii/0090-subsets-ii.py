@@ -4,12 +4,13 @@ class Solution:
         end = len(nums)
 
         ans = []
-
+        nums.sort()
         def backtrack(start,sub):
-            if sorted(sub) not in ans:
-                ans.append(sorted(sub[:]))
+        
+            ans.append(sub[:])
             for i in range(start,end):
- 
+                if i > start and nums[i] == nums[i-1]:
+                    continue
                 sub.append(nums[i])     
                 backtrack(i+1,sub)
                 sub.pop()
