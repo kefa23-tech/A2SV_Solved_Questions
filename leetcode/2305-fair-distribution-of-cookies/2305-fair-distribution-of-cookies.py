@@ -11,7 +11,7 @@ class Solution:
                 min_unfair = min(min_unfair,max(distr))
                 return
             
-            if min_unfair <= max(distr):
+            if max(distr) >= min_unfair:
                 return
             
             for j in range(k):
