@@ -9,12 +9,22 @@ class Solution:
         min_ = float("inf")
         while left <= right:
             mid = (left + right) // 2
-            if left == right:
-                return nums[mid]
-            if nums[mid] > nums[right]:
-                left = mid + 1
-            elif nums[mid] <= nums[right]:
+            if nums[left] <=nums[right]:
+
+                return nums[left]
+            
+            if nums[mid] >= nums[left]:
+                left = mid+1
+            else:
                 right = mid
+
+
+            # if left == right:
+            #     return nums[mid]
+            # if nums[mid] > nums[right]:
+            #     left = mid + 1
+            # elif nums[mid] <= nums[right]:
+            #     right = mid
 
             # print("l", left, "r", right)
             # if nums[mid - 1] > nums[mid] < nums[(mid + 1) % n]:
