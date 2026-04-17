@@ -12,7 +12,7 @@ class Solution:
             
             right = bisect_right(sorted_lis,num)
 
-           # print(left,right)
+            #print(left,right)
             
             #print(sorted_lis)
             # if sorted_lis[-1] == sorted_lis[right-1]:
