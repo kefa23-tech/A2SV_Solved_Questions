@@ -1,38 +1,93 @@
-from collections import defaultdict
+from collections import defaultdict,deque
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
  
-    
-        def dfs(node):
+        def kahns_algo(num_nodes,edges):
 
-            if node in visited:
-                return False
-            if graph[node] == []:
-                return True
-            visited.add(node)
-            for nei in graph[node]:
-                if not dfs(nei):
-                    return False
+            adj = {i:[] for i in range(num_nodes)}
+            indegree = [0] * num_nodes
 
-            visited.remove(node)
-            graph[node] = []
+            for u,v in edges:
+                adj[u].append(v)
+                indegree[v]+=1
+            
 
-            return True
+            queue = deque([i for i in range(num_nodes) if indegree[i] == 0 ])
+            courses = 0
+            while queue:
+                u = queue.popleft()
+                courses+=1
 
+                for nei in adj[u]:
+                    indegree[nei]-=1
+                    if indegree[nei] == 0:
+                        queue.append(nei)
+            
+            return courses
 
+        taken = kahns_algo(numCourses,prerequisites)
 
-
-        graph = defaultdict(list)
-
-        for u,v in prerequisites:
-            graph[u].append(v)
-        visited = set()
-        for node in range(numCourses):
-            if not dfs(node):
-                return False
+        return taken == numCourses
 
 
-        return True    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # def dfs(node):
+
+        #     if node in visited:
+        #         return False
+        #     if graph[node] == []:
+        #         return True
+        #     visited.add(node)
+        #     for nei in graph[node]:
+        #         if not dfs(nei):
+        #             return False
+
+        #     visited.remove(node)
+        #     graph[node] = []
+
+        #     return True
+
+
+
+
+        # graph = defaultdict(list)
+
+        # for u,v in prerequisites:
+        #     graph[u].append(v)
+        # visited = set()
+        # for node in range(numCourses):
+        #     if not dfs(node):
+        #         return False
+
+
+        # return True    
 
 
 
